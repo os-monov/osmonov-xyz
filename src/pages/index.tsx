@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+    const router = useRouter()
+
     return (
         <div style={{marginLeft: "20px", marginTop: "40px", marginBottom: "100px"}}>
             <div>
@@ -18,22 +21,40 @@ export default function Home() {
                 <Image src={'/money-shot.jpg'} alt="Picture of Me" width={180} height={240}/>
             </div>
             <div style={{paddingTop: "10px"}}>
-              <span style={{paddingRight: "5px"}}>
-                  <a href={"https://github.com/os-monov"}>GitHub</a>
-              </span>
+                <span style={{paddingRight: "5px"}}>
+                    <button type="button" onClick={() => {
+                        window.open(
+                            "https://github.com/os-monov",
+                            "_blank"
+                        )
+                    }}>GitHub</button>
+                </span>
+                <span style={{paddingLeft: "5px", paddingRight: "5px"}} >
+                    <button type="button" onClick={() => {
+                        window.open(
+                            "https://www.linkedin.com/in/thealexanderosmonov/",
+                            "_blank"
+                        )
+                    }}>LinkedIn</button>
+                </span>
                 <span style={{paddingLeft: "5px", paddingRight: "5px"}}>
-                  <a href={"https://www.linkedin.com/in/thealexanderosmonov/"}>LinkedIn</a>
-              </span>
-                <span style={{paddingLeft: "5px", paddingRight: "5px"}}>
-                  <a href={"https://mobile.twitter.com/os_monov"}>Twitter</a>
-              </span>
+                    <button type="button" onClick={() => {
+                        window.open(
+                        "https://mobile.twitter.com/os_monov",
+                        "_blank"
+                        )}}
+                    >Twitter</button>
+                </span>
+
                 <span style={{paddingLeft: "5px"}}>
-                  <a href={"https://osmonov.xyz/essays"}>Essays</a>
+                    <button type="button" onClick={() => router.push('/essays')}>
+                        Essays
+                    </button>
               </span>
             </div>
             <div>
                 <h4><u>Education</u></h4>
-                <h5> uc berkeley: </h5>
+                <h5> uc berkeley </h5>
                 <span>
                   - studied data science & economics <br/>
                   - started taking cs classes sophomore year & i wish i had taken less economics classes lol
@@ -69,7 +90,7 @@ export default function Home() {
               </span>
 
                 <h4>Projects: </h4>
-                <h5> DocuLink: </h5>
+                <h5> DocuLink </h5>
                 <span>
                   - a SaaS/API solution for securely requesting documents at scale: think DocuSign meets DropBox <br/>
                   - yc competitors: <a href={"https://www.ycombinator.com/companies/pigeon"}>pigeon</a> & <a
